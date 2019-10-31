@@ -137,13 +137,13 @@
 )
 
 (defrule densidad-alta
-    (densidad alta)
+    (densidad-trafico alta)
 =>
     (assert (prioridad-reasfaltado very urgente))
 )
 
 (defrule densidad-baja
-    (densidad baja)
+    (densidad-trafico baja)
 =>
     (assert (prioridad-reasfaltado more-or-less baja))
 )
