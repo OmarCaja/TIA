@@ -1,5 +1,5 @@
 (
-    define (domain asfaltado)
+    define (domain mantenimiento-carreteras)
 
     (:requirements :durative-actions :typing :fluents)
 
@@ -14,7 +14,7 @@
         (aplastado ?t - tramo)
         (pintado ?t - tramo)
         (vallado ?t - tramo)
-        (necesita-señales ?t - tramo)
+        (se-debe-señalizar ?t - tramo)
         (cuadrilla-disponible ?c - cuadrilla)
         (maquina-disponible ?m - maquina)
         (tramo-disponible ?t - tramo)
@@ -28,9 +28,9 @@
         (tiempo-compactar)
         (tiempo-pavimentar)
         (tiempo-aplastar)
-        (tiempo-pintado)
-        (tiempo-vallado)
-        (tiempo-señalizado)
+        (tiempo-pintar)
+        (tiempo-vallar)
+        (tiempo-señalizar)
         (coste-maquina ?m - maquina)
         (coste-total)
     )
@@ -191,7 +191,7 @@
 
     (:durative-action pintado
         :parameters (?c - cuadrilla ?t - tramo)
-        :duration (= ?duration (tiempo-pintado))
+        :duration (= ?duration (tiempo-pintar))
         :condition (and 
             (at start (and
                 (at ?c ?t)
@@ -221,7 +221,7 @@
 
     (:durative-action vallado
         :parameters (?c - cuadrilla ?t - tramo)
-        :duration (= ?duration (tiempo-vallado))
+        :duration (= ?duration (tiempo-vallar))
         :condition (and 
             (at start (and 
                 (at ?c ?t)
@@ -251,13 +251,13 @@
 
     (:durative-action señalizado
         :parameters (?c - cuadrilla ?t - tramo)
-        :duration (= ?duration (tiempo-señalizado))
+        :duration (= ?duration (tiempo-señalizar))
         :condition (and 
             (at start (and
                 (at ?c ?t)
                 (cuadrilla-disponible ?c)
                 (tramo-disponible ?t)
-                (necesita-señales ?t)
+                (se-debe-señalizar ?t)
                 (aplastado ?t)
             ))
             (over all (and
