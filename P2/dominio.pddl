@@ -43,6 +43,8 @@
                 (at ?c ?t1)
                 (conectados ?t1 ?t2)
                 (cuadrilla-disponible ?c)
+                (tramo-disponible ?t1)
+                (tramo-disponible ?t2)
             ))
             (over all (and
                 (tramo-disponible ?t1)
@@ -71,6 +73,8 @@
                 (at ?m ?t1)
                 (conectados ?t1 ?t2)
                 (maquina-disponible ?m)
+                (tramo-disponible ?t1)
+                (tramo-disponible ?t2)
             ))
             (over all (and
                 (tramo-disponible ?t1)
@@ -103,7 +107,6 @@
             ))
             (over all (and
                 (at ?c ?t)
-                (se-debe-compactar ?t)
             ))
             (at end (and 
             ))
