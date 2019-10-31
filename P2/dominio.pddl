@@ -14,7 +14,7 @@
         (aplastado ?t - tramo)
         (pintado ?t - tramo)
         (vallado ?t - tramo)
-        (se-debe-señalizar ?t - tramo)
+        (se-debe-senalizar ?t - tramo)
         (cuadrilla-disponible ?c - cuadrilla)
         (maquina-disponible ?m - maquina)
         (tramo-disponible ?t - tramo)
@@ -30,7 +30,7 @@
         (tiempo-aplastar)
         (tiempo-pintar)
         (tiempo-vallar)
-        (tiempo-señalizar)
+        (tiempo-senalizar)
         (coste-maquina ?m - maquina)
         (coste-total)
     )
@@ -40,7 +40,7 @@
         :duration (= ?duration (tiempo-desplazar-cuadrilla ?t1 ?t2))
         :condition (and 
             (at start (and
-                (at c? t1?)
+                (at ?c ?t1)
                 (conectados ?t1 ?t2)
                 (cuadrilla-disponible ?c)
             ))
@@ -68,7 +68,7 @@
         :duration (= ?duration (tiempo-desplazar-maquina ?t1 ?t2))
         :condition (and 
             (at start (and
-                (at m? t1?)
+                (at ?m ?t1)
                 (conectados ?t1 ?t2)
                 (maquina-disponible ?m)
             ))
@@ -98,7 +98,7 @@
             (at start (and 
                 (at ?c ?t)
                 (se-debe-compactar ?t)
-                (maquina-disponible ?t)
+                (maquina-disponible ?c)
                 (tramo-disponible ?t)
             ))
             (over all (and
@@ -249,15 +249,15 @@
         )
     )
 
-    (:durative-action señalizado
+    (:durative-action senalizado
         :parameters (?c - cuadrilla ?t - tramo)
-        :duration (= ?duration (tiempo-señalizar))
+        :duration (= ?duration (tiempo-senalizar))
         :condition (and 
             (at start (and
                 (at ?c ?t)
                 (cuadrilla-disponible ?c)
                 (tramo-disponible ?t)
-                (se-debe-señalizar ?t)
+                (se-debe-senalizar ?t)
                 (aplastado ?t)
             ))
             (over all (and
@@ -274,7 +274,7 @@
             (at end (and
                 (cuadrilla-disponible ?c)
                 (tramo-disponible ?t)
-                (señalizado ?t)
+                (not (se-debe-senalizar ?t))
             ))
         )
     )

@@ -56,7 +56,7 @@
         (= (tiempo-aplastar) 150)
         (= (tiempo-pintar) 30)
         (= (tiempo-vallar) 120)
-        (= (tiempo-señalizar) 70)
+        (= (tiempo-senalizar) 70)
 
         (= (coste-total) 0)
         (= (coste-maquina cisterna1) 25)
@@ -78,9 +78,9 @@
         (se-debe-compactar tramo1)
         (se-debe-compactar tramo2)
 
-        (se-debe-señalizar tramo3)
-        (se-debe-señalizar tramo4)
-        (se-debe-señalizar tramo5)
+        (se-debe-senalizar tramo3)
+        (se-debe-senalizar tramo4)
+        (se-debe-senalizar tramo5)
 
         (tramo-disponible tramo1)
         (tramo-disponible tramo2)
@@ -136,9 +136,9 @@
             (vallado tramo4)
             (vallado tramo5)
 
-            (not (se-debe-señalizar tramo3))
-            (not (se-debe-señalizar tramo4))
-            (not (se-debe-señalizar tramo5))
+            (not (se-debe-senalizar tramo3))
+            (not (se-debe-senalizar tramo4))
+            (not (se-debe-senalizar tramo5))
         )
     )
 
