@@ -24,7 +24,10 @@ constraint (layerAMode[8] > 1 + layerBMode[8] \/ layerAMode[8] < 1 - layerBMode[
 constraint (layerAMode[5] = 1 + layerBMode[5] \/ layerAMode[5] = 1 - layerBMode[5]);
 
 % F constraint.
-constraint (layerAMode[4] = 1 + layerAMode[1] \/ layerAMode[4] = 1 - layerAMode[1] \/ layerAMode[4] = 1 + layerBMode[1] \/ layerAMode[4] = 1 - layerMode[1] \/ layerAMode[4] = 1 + layerAMode[9] \/ layerAMode[4] = 1 - layerAMode[9] \/ layerAMode[4] = 1 + layerBMode[9] \/ layerAMode[4] = 1 - layerMode[9]);
+constraint (layerAMode[4] = 1 + layerAMode[1] \/ layerAMode[4] = 1 - layerAMode[1] \/ 
+            layerAMode[4] = 1 + layerBMode[1] \/ layerAMode[4] = 1 - layerBMode[1] \/ 
+            layerAMode[4] = 1 + layerAMode[9] \/ layerAMode[4] = 1 - layerAMode[9] \/ 
+            layerAMode[4] = 1 + layerBMode[9] \/ layerAMode[4] = 1 - layerBMode[9]);
 
 % G constraint.
 constraint (layerAMode[6] != 1 + layerAMode[7] \/ layerAMode[6] != 1 - layerAMode[7]);
