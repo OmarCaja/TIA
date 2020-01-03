@@ -18,7 +18,7 @@ constraint (layerMode[a,2] != 1 + layerMode[b,4] /\ layerMode[a,2] != 1 - layerM
 constraint forall(i in 1..layers where i!=7) (layerMode[a,7] != 1 + layerMode[a,i] /\ layerMode[a,7] != 1 - layerMode[a,i]);
 
 % C constraint.
-constraint (layerMode[a,4] > 4 + layerMode[b,4] /\ layerMode[a,4] < 4 - layerMode[b,4]);
+constraint (layerMode[a,4] > abs(4 + layerMode[b,4]) \/ layerMode[a,4] < abs(4 - layerMode[b,4]));
 
 % D constraint.
 constraint (layerMode[a,8] = 2 + layerMode[b,8] \/ layerMode[a,8] = 2 - layerMode[b,8]);
