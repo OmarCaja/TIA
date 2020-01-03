@@ -38,9 +38,9 @@ constraint (layerMode[a,6] != 1 + layerMode[a,7] /\ layerMode[a,6] != 1 - layerM
 % H constraint.
 constraint (layerMode[a,5] = 1 + layerMode[b,4] \/ layerMode[a,5] = 1 - layerMode[b,4] \/
             layerMode[a,5] = 1 + layerMode[b,8] \/ layerMode[a,5] = 1 - layerMode[b,8] \/
-            layerMode[a,5] = 1 - layerMode[a,2] \/ layerMode[a,5] = 1 + layerMode[a,2] \/
-            layerMode[a,5] = 1 - layerMode[a,3] \/ layerMode[a,5] = 1 + layerMode[a,3] \/
-            layerMode[a,5] = 1 - layerMode[a,7] \/ layerMode[a,5] = 1 + layerMode[a,7]);
+            layerMode[a,5] = 1 + layerMode[a,2] \/ layerMode[a,5] = 1 - layerMode[a,2] \/
+            layerMode[a,5] = 1 + layerMode[a,3] \/ layerMode[a,5] = 1 - layerMode[a,3] \/
+            layerMode[a,5] = 1 + layerMode[a,7] \/ layerMode[a,5] = 1 - layerMode[a,7]);
 
 constraint (layerMode[b,5] != 1 + layerMode[a,6] /\ layerMode[b,5] != 1 - layerMode[a,6]);
 
