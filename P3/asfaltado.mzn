@@ -1,8 +1,12 @@
+include "alldifferent.mzn";
+
 int: layers = 9;
 
-array[1..layers] of set of 1..(layers*2): layerAMode;
-array[1..layers] of set of 1..(layers*2): layerBMode;
+array[1..layers] of var 1..(layers*2): layerAMode;
+array[1..layers] of var 1..(layers*2): layerBMode;
 
+constraint alldifferent(layerAMode);
+constraint alldifferent(layerBMode);
 constraint forall(i in 1..layers) (layerAMode[i] != layerBMode[i]);
 
 % A constraint.
@@ -41,10 +45,10 @@ constraint (layerAMode[5] = 1 + layerBMode[4] \/ layerAMode[5] = 1 - layerBMode[
 
 constraint (layerBMode[5] != 1 + layerAMode[6] \/ layerBMode[5] != 1 - layerAMode[6]);
 
-% I Constraint.
+% I constraint.
 constraint forall(i in 1..(layers - 1)) (layerAMode[i] < layerAMode[i + 1]);
 
-% J Constraint.
+% J constraint.
 constraint forall(i in 1..(layers - 4)) (layerBMode[i] > layerBMode[i + 1]);
 
 % Sol 1.
