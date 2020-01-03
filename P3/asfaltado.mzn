@@ -30,8 +30,13 @@ constraint (layerAMode[4] = 1 + layerAMode[1] \/ layerAMode[4] = 1 - layerAMode[
 constraint (layerAMode[6] != 1 + layerAMode[7] \/ layerAMode[6] != 1 - layerAMode[7]);
 
 % H constraint.
-constraint (layerAMode[5] = 1 + layerBMode[4] \/ layerAMode[5] = 1 - layerBMode[4] \/ layerAMode[5] = 1 + layerBMode[8] \/ layerAMode[5] = 1 - layerBMode[8] \/ \/ layerAMode[5] = 1 - layerBMode[4] \/ layerAMode[5] = 1 + layerAMode[2] \/ layerAMode[5] = 1 - layerAMode[2] \/ layerAMode[5] = 1 + layerAMode[3] \/ layerAMode[5] = 1 - layerAMode[3] \/ layerAMode[5] = 1 + layerAMode[7] \/ layerAMode[5] = 1 - layerAMode[7]);
-constraint (layerBMode[5] = 1 + layerAMode[6] \/ layerBMode[5] = 1 - layerAMode[6]);
+constraint (layerAMode[5] = 1 + layerBMode[4] \/ layerAMode[5] = 1 - layerBMode[4] \/
+            layerAMode[5] = 1 + layerBMode[8] \/ layerAMode[5] = 1 - layerBMode[8] \/
+            layerAMode[5] = 1 - layerAMode[2] \/ layerAMode[5] = 1 + layerAMode[2] \/
+            layerAMode[5] = 1 - layerAMode[3] \/ layerAMode[5] = 1 + layerAMode[3] \/
+            layerAMode[5] = 1 - layerAMode[7] \/ layerAMode[5] = 1 + layerAMode[7]);
+
+constraint (layerBMode[5] != 1 + layerAMode[6] \/ layerBMode[5] != 1 - layerAMode[6]);
 
 % I Constraint.
 constraint forall(i in 1..(layers - 1)) (layerAMode[i] < layerAMode[i + 1]);
