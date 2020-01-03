@@ -15,7 +15,7 @@ constraint (abs(layerPosition[a,2] - layerPosition[a,1]) != 1) /\
            (abs(layerPosition[a,2] - layerPosition[b,4]) != 1);
 
 % B constraint.
-constraint forall(i in 1..layers where i!=7) (layerPosition[a,7] - layerPosition[a,i] != 1);
+constraint forall(i in 1..layers where i !=7 ) (layerPosition[a,7] - layerPosition[a,i] != 1);
 
 % C constraint.
 constraint abs(layerPosition[a,4] - layerPosition[b,4]) > 4;
