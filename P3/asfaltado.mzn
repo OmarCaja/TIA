@@ -18,7 +18,7 @@ constraint forall(i in 1..layers where i!=7) (layerAMode[7] + 1 != layerAMode[i]
 constraint (layerAMode[4] > 4 + layerBMode[4] \/ layerAMode[4] < 4 - layerBMode[4]);
 
 % D constraint.
-constraint (layerAMode[8] > 1 + layerBMode[8] \/ layerAMode[8] < 1 - layerBMode[8]);
+constraint (layerAMode[8] = 2 + layerBMode[8] \/ layerAMode[8] = 2 - layerBMode[8]);
 
 % E constraint.
 constraint (layerAMode[5] = 1 + layerBMode[5] \/ layerAMode[5] = 1 - layerBMode[5]);
