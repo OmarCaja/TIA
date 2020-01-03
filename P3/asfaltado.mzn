@@ -55,7 +55,7 @@ constraint forall(i in 1..(layers - 4)) (layerBMode[i] > layerBMode[i + 1]);
 solve minimize abs(layerAMode[8] - layerAMode[9]) + abs(layerBMode[1] - layerBMode[2]);
 
 % Sol 2.
-solve maximize (layers * 2 - (layerAMode[7] - layerBMode[7])) + (layerAMode[3] - layerBMode[9]);
+solve maximize (layers * 2 - abs(layerAMode[7] - layerBMode[7])) + abs(layerAMode[3] - layerBMode[9]);
 
 output["Layer A mode positions: "] ++ [(show(layerAMode[i]) ++ " ") | i in 1..layers] ++
       ["\n"] ++
