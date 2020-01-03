@@ -10,13 +10,13 @@ constraint alldifferent(layerBMode);
 constraint forall(i in 1..layers) (layerAMode[i] != layerBMode[i]);
 
 % A constraint.
-constraint (layerAMode[2] != 1 + layerAMode[1] /\ layerAMode[2] != 1 - layerAMode[1]);
-constraint (layerAMode[2] != 1 + layerAMode[5] /\ layerAMode[2] != 1 - layerAMode[5]);
-constraint (layerAMode[2] != 1 + layerAMode[9] /\ layerAMode[2] != 1 - layerAMode[9]);
-constraint (layerAMode[2] != 1 + layerBMode[4] /\ layerAMode[2] != 1 - layerBMode[4]);
+constraint (layerAMode[2] != 1 + layerAMode[1] \/ layerAMode[2] != 1 - layerAMode[1]);
+constraint (layerAMode[2] != 1 + layerAMode[5] \/ layerAMode[2] != 1 - layerAMode[5]);
+constraint (layerAMode[2] != 1 + layerAMode[9] \/ layerAMode[2] != 1 - layerAMode[9]);
+constraint (layerAMode[2] != 1 + layerBMode[4] \/ layerAMode[2] != 1 - layerBMode[4]);
 
 % B constraint.
-constraint forall(i in 1..layers where i!=7) (layerAMode[7] + 1 != layerAMode[i] /\ layerAMode[7] - 1 != layerAMode[i]);
+constraint forall(i in 1..layers where i!=7) (layerAMode[7] != 1 + layerAMode[i] /\ layerAMode[7] != 1 - layerAMode[i]);
 
 % C constraint.
 constraint (layerAMode[4] > 4 + layerBMode[4] \/ layerAMode[4] < 4 - layerBMode[4]);
