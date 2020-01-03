@@ -9,40 +9,40 @@ array[a..b, 1..layers] of var 1..(layers*2): layerPosition;
 constraint alldifferent(layerPosition);
 
 % A constraint.
-constraint (layerPosition[a,2] != 1 + layerPosition[a,1] /\ layerPosition[a,2] != 1 - layerPosition[a,1]);
-constraint (layerPosition[a,2] != 1 + layerPosition[a,5] /\ layerPosition[a,2] != 1 - layerPosition[a,5]);
-constraint (layerPosition[a,2] != 1 + layerPosition[a,9] /\ layerPosition[a,2] != 1 - layerPosition[a,9]);
-constraint (layerPosition[a,2] != 1 + layerPosition[b,4] /\ layerPosition[a,2] != 1 - layerPosition[b,4]);
+constraint (abs(layerPosition[a,2] - layerPosition[a,1]) != 1) /\
+           (abs(layerPosition[a,2] - layerPosition[a,5]) != 1) /\
+           (abs(layerPosition[a,2] - layerPosition[a,9]) != 1) /\
+           (abs(layerPosition[a,2] - layerPosition[b,4]) != 1);
 
 % B constraint.
-constraint forall(i in 1..layers where i!=7) (layerPosition[a,7] != 1 + layerPosition[a,i] /\ layerPosition[a,7] != 1 - layerPosition[a,i]);
+constraint forall(i in 1..layers where i!=7) (layerPosition[a,7] - layerPosition[a,i] != 1);
 
 % C constraint.
-constraint (layerPosition[a,4] > abs(4 + layerPosition[b,4]) \/ layerPosition[a,4] < abs(4 - layerPosition[b,4]));
+constraint abs(layerPosition[a,4] - layerPosition[b,4]) > 4;
 
 % D constraint.
-constraint (layerPosition[a,8] = 2 + layerPosition[b,8] \/ layerPosition[a,8] = 2 - layerPosition[b,8]);
+constraint abs(layerPosition[a,8] - layerPosition[b,8]) == 2;
 
 % E constraint.
-constraint (layerPosition[a,5] = 1 + layerPosition[b,5] \/ layerPosition[a,5] = 1 - layerPosition[b,5]);
+constraint abs(layerPosition[a,5] - layerPosition[b,5]) == 1;
 
 % F constraint.
-constraint (layerPosition[a,4] = 1 + layerPosition[a,1] \/ layerPosition[a,4] = 1 - layerPosition[a,1] \/ 
-            layerPosition[a,4] = 1 + layerPosition[b,1] \/ layerPosition[a,4] = 1 - layerPosition[b,1] \/ 
-            layerPosition[a,4] = 1 + layerPosition[a,9] \/ layerPosition[a,4] = 1 - layerPosition[a,9] \/ 
-            layerPosition[a,4] = 1 + layerPosition[b,9] \/ layerPosition[a,4] = 1 - layerPosition[b,9]);
+constraint (abs(layerPosition[a,4] - layerPosition[a,1])) == 1 \/
+           (abs(layerPosition[a,4] - layerPosition[b,1])) == 1 \/
+           (abs(layerPosition[a,4] - layerPosition[a,9])) == 1 \/
+           (abs(layerPosition[a,4] - layerPosition[b,9])) == 1;
 
 % G constraint.
-constraint (layerPosition[a,6] != 1 + layerPosition[a,7] /\ layerPosition[a,6] != 1 - layerPosition[a,7]);
+constraint abs(layerPosition[a,6] - layerPosition[a,7]) != 1;
 
 % H constraint.
-constraint (layerPosition[a,5] = 1 + layerPosition[b,4] \/ layerPosition[a,5] = 1 - layerPosition[b,4] \/
-            layerPosition[a,5] = 1 + layerPosition[b,8] \/ layerPosition[a,5] = 1 - layerPosition[b,8] \/
-            layerPosition[a,5] = 1 + layerPosition[a,2] \/ layerPosition[a,5] = 1 - layerPosition[a,2] \/
-            layerPosition[a,5] = 1 + layerPosition[a,3] \/ layerPosition[a,5] = 1 - layerPosition[a,3] \/
-            layerPosition[a,5] = 1 + layerPosition[a,7] \/ layerPosition[a,5] = 1 - layerPosition[a,7]);
+constraint (abs(layerPosition[a,5] - layerPosition[b,4]) == 1) \/
+           (abs(layerPosition[a,5] - layerPosition[b,8]) == 1) \/
+           (abs(layerPosition[a,5] - layerPosition[a,2]) == 1) \/
+           (abs(layerPosition[a,5] - layerPosition[a,3]) == 1) \/
+           (abs(layerPosition[a,5] - layerPosition[a,7]) == 1);
 
-constraint (layerPosition[b,5] != 1 + layerPosition[a,6] /\ layerPosition[b,5] != 1 - layerPosition[a,6]);
+constraint abs(layerPosition[b,5]  - layerPosition[a,6]) != 1;
 
 % I constraint.
 constraint forall(i in 1..(layers - 1)) (layerPosition[a,i] < layerPosition[a,i + 1]);
