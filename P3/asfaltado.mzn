@@ -4,7 +4,7 @@ int: layers = 9;
 int: a = 1;
 int: b = 2;
 
-array[a..b] of var 1..(layers*2): layerMode;
+array[a..b, 1..layers] of var 1..(layers*2): layerMode;
 
 constraint alldifferent(layerMode);
 
