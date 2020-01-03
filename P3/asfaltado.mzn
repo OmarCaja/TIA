@@ -36,13 +36,11 @@ constraint (abs(layerPosition[a,4] - layerPosition[a,1])) == 1 \/
 constraint abs(layerPosition[a,6] - layerPosition[a,7]) != 1;
 
 % H constraint.
-constraint (abs(layerPosition[a,5] - layerPosition[b,4]) == 1) \/
+constraint ((abs(layerPosition[a,5] - layerPosition[b,4]) == 1) \/
            (abs(layerPosition[a,5] - layerPosition[b,8]) == 1) \/
            (abs(layerPosition[a,5] - layerPosition[a,2]) == 1) \/
            (abs(layerPosition[a,5] - layerPosition[a,3]) == 1) \/
-           (abs(layerPosition[a,5] - layerPosition[a,7]) == 1);
-
-constraint abs(layerPosition[b,5]  - layerPosition[a,6]) != 1;
+           (abs(layerPosition[a,5] - layerPosition[a,7]) == 1)) /\ (abs(layerPosition[b,5]  - layerPosition[a,6]) != 1);
 
 % I constraint.
 constraint forall(i in 1..(layers - 1)) (layerPosition[a,i] < layerPosition[a,i + 1]);
