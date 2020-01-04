@@ -20,8 +20,9 @@ public class ProyectoEvaluator implements Evaluator<ArrayList<Integer>> {
 
             for (int i = 0; i < phenotype.size(); i++) {
 
-			cost += Datos.matrizCostes[phenotype.get(i) - 1][i];
-			productivity += Datos.matrizProductividad[fenotipo.get(i) -1][i];
+            	cost += Datos.matrizCostes[phenotype.get(i) - 1][i];
+            	productivity += Datos.matrizProductividad[phenotype.get(i) -1][i];
+			}
 
         } else {
 

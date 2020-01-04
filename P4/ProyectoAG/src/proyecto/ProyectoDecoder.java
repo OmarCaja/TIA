@@ -14,7 +14,7 @@ public class ProyectoDecoder implements Decoder<IntegerGenotype, ArrayList<Integ
 		
 		for (int i = 0; i < genotype.size(); i++) {
 
-			phenotype.add(genotype.get(id));
+			phenotype.add(genotype.get(i));
 		}
 
 		return phenotype;
