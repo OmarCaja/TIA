@@ -7,6 +7,7 @@ import org.opt4j.core.problem.Creator;
 
 public class ProyectoCreator implements Creator<IntegerGenotype> {
 	
+    @Override
 	public IntegerGenotype create() {
 		
 		IntegerGenotype genotipo = new IntegerGenotype(1, Datos.NUM_TURNOS);
