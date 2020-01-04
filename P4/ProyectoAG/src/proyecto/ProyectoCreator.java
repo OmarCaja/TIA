@@ -10,9 +10,9 @@ public class ProyectoCreator implements Creator<IntegerGenotype> {
     @Override
 	public IntegerGenotype create() {
 		
-		IntegerGenotype genotipo = new IntegerGenotype(1, Datos.NUM_TURNOS);
-		genotipo.init(new Random(), Datos.NUM_CUADRILLAS);
+		IntegerGenotype genotype = new IntegerGenotype(1, Datos.NUM_TURNOS);
+		genotype.init(new Random(), Datos.NUM_CUADRILLAS);
 		
-		return genotipo;	
+		return genotype;	
 	}
 }

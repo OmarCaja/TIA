@@ -7,13 +7,13 @@ public class ProyectoDecoder implements Decoder<IntegerGenotype, ArrayList<Integ
     @Override
 	public ArrayList<Integer> decode(IntegerGenotype genotype) {
 
-		ArrayList<Integer> fenotipo = new ArrayList<>();
+		ArrayList<Integer> phenotype = new ArrayList<>();
 		
 		for (int i = 0; i < genotype.size(); i++) {
 
-			fenotipo.add(genotype.get(id));
+			phenotype.add(genotype.get(id));
 		}
-        
-		return fenotipo;
+
+		return phenotype;
 	}
 }
